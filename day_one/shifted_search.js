@@ -28,4 +28,5 @@ const binary_search = (arr, target) => {
     }
 };
 
-sorted.forEach(num => console.log(num, binary_search(shiftedTwo, num)));
+
+sorted.forEach(num => console.log(num, binary_search(shifted, num)));
