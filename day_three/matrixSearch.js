@@ -6,21 +6,22 @@ let matrix = [
     [98, 99, 101, 104, 190, 1021, 1025],
 ];
 
-
 const matrixSearch = (matrix, target) => {
-    let width = matrix[0].length
-    let height = matrix.length
-    let row = 0
-    while(true){
-        for(let col = 0; col < width; col++){
-            let testNum = matrix[row][col]
-            if(testNum === target)
-                return [row, col]
-            if(testNum > target)
-                break
+    let width = matrix[0].length;
+    let height = matrix.length;
+    let row = 0;
+    while (true) {
+        for (let col = 0; col < width; col++) {
+            let testNum = matrix[row][col];
+            if (testNum === target) return [row, col];
+            if (testNum > target) break;
         }
-        row++
+        row++;
+        if(row === height)
+            break
     }
-}
 
-console.log(matrixSearch(matrix, 98))
+    return [-1, -1];
+};
+
+console.log(matrixSearch(matrix, 52));
