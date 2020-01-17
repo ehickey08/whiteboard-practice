@@ -24,4 +24,26 @@ const matrixSearch = (matrix, target) => {
     return [-1, -1];
 };
 
+const binaryMatrixSearch = (matrix, target) => {
+    let width = matrix[0].length;
+    let height = matrix.length;
+    let row = 0
+    let col = width - 1
+    while(row < height && col >= 0){
+        let testNum = matrix[row][col]
+        if(testNum === target)
+            return[row, col]
+        if(testNum < target)
+            row++
+        if(testNum > target)
+            col--
+    }
+    return [-1, -1]
+}
+
 console.log(matrixSearch(matrix, 52));
+console.log(matrixSearch(matrix, 45));
+
+console.log(binaryMatrixSearch(matrix, 52));
+console.log(binaryMatrixSearch(matrix, 45));
+
