@@ -19,13 +19,13 @@ const taskScheduler = (tasks, dependencies) => {
 
     for(let job in preReqs){
         if(preReqs[job] === 0)
-            queue.push(job)
+            queue.push(+job)
     }
-    
+
     while(queue.length > 0){
         let job = queue.shift()
         result.push(job)
-        delete preReqs[job]
+        
         for(let dependent of graph[job]){
             preReqs[dependent]--
             if(preReqs[dependent] === 0)
