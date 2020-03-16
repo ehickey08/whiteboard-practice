@@ -13,17 +13,32 @@ const digitsToLetters = {
   }
 
 const telephoneWords = digits => {
-    let digitQueue = digits.toString().split('')
-    let options = []
+    let digitString = digits.toString().split('')
+    let firstDigit = digitString[0]
+    let firstDigitOptions = digitsToLetters[firstDigit].split('')
 
-    while(digitQueue.length > 0){
-        let newDigit = digitQueue.shift()
-        let newDigitOptions = digitsToLetters[newDigit]
-        if()
+    let options = []
+    let stack = []
+    firstDigitOptions.forEach(letter => stack.push(letter))
+    
+    while(stack.length > 0){
+        let currentCombo = stack.pop()
+
+        if (currentCombo.length === digits.toString().length){
+            options.push(currentCombo)
+        }
+        else{
+            let nextDigit = digitString[currentCombo.length]
+            let nextOptions = digitsToLetters[nextDigit].split('')
+            nextOptions.forEach(letter => {
+                stack.push(`${currentCombo}${letter}`)
+            })
+        }
     }
 
-    return options
+
+    return options.sort()
 }
 
 //['AP', 'AQ', 'AR', 'AS', 'BP', 'BQ', 'BR', 'BS', 'CP', 'CQ', 'CR', 'CS']
-console.log(telephoneWords(27))
+console.log(telephoneWords(237))
