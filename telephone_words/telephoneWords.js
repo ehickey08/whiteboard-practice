@@ -41,4 +41,4 @@ const telephoneWords = digits => {
 }
 
 //['AP', 'AQ', 'AR', 'AS', 'BP', 'BQ', 'BR', 'BS', 'CP', 'CQ', 'CR', 'CS']
-console.log(telephoneWords(237))
+console.log(telephoneWords(27))
