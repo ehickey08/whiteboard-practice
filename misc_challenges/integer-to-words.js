@@ -103,4 +103,4 @@ var numberToWords = function(num) {
     return fullSegments.reverse().join('');
 };
 
-console.log(numberToWords(10));
+console.log(numberToWords(1034534));
