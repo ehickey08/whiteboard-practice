@@ -13,6 +13,7 @@ const digitsToLetters = {
   }
 
 const telephoneWords = digits => {
+    debugger;
     let digitString = digits.toString().split('')
     let firstDigit = digitString[0]
     let firstDigitOptions = digitsToLetters[firstDigit].split('')
